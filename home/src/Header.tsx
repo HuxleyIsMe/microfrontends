@@ -1,7 +1,7 @@
 import React from "react";
 
-export default () => (
+export default ({ pickleName }) => (
   <div>
-    <h2>Pickles</h2>
+    <h2>Pickles {pickleName}</h2>
   </div>
 );

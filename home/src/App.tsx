@@ -7,7 +7,7 @@ import "./index.css";
 
 const App = () => (
   <div className="container">
-    <Header />
+    <Header pickleName="peaches" />
     <div className="content">Content</div>
     <Footer />
   </div>
