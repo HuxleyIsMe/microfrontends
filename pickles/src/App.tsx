@@ -2,20 +2,30 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 
 import { Footer } from "home/Footer";
-// must be a default export
+// must be a default export but like noo
 // import Header from "home/Header";
 
 import "./index.css";
 // @ts-ignore
 const Header = React.lazy(() => import("home/Header"));
 
-const App = () => (
-  <div className="container">
-    <Suspense fallback={<div>..Loading</div>}>
-      <Header />
-    </Suspense>
-    <div className="content">Content</div>
-    <Footer />
-  </div>
-);
+const App = () => {
+  const [showHeader, setShowHeader] = React.useState(false);
+  return (
+    <div className="container">
+      {showHeader && (
+        <Suspense fallback={<div>..Loading</div>}>
+          <Header />
+        </Suspense>
+      )}
+      <button onClick={() => setShowHeader(!showHeader)}>
+        {" "}
+        Show the header
+      </button>
+
+      <div className="content">Content</div>
+      <Footer />
+    </div>
+  );
+};
 ReactDOM.render(<App />, document.getElementById("app"));
